@@ -1,0 +1,12 @@
+﻿/*COMANDO ISNTALAR HERRAMIENTA MIGRACION Model-Table*/
+CMD
+dotnet tool install --global dotnet-ef --version 3.1.2
+
+/*COMANDO CRAER CARPETA Migrations (SCRIPT MIGRAR MODELOS A SQL )*/
+Terminal
+dotnet ef migrations add MigracionPostgresInical --project {TiendaServicio.Api.Auto}
+
+
+/*COMANDO CORRER SCRIPT-ARCHIVO*/
+Terminal
+dotnet ef database update --project TiendaServicio.Api.Autor
