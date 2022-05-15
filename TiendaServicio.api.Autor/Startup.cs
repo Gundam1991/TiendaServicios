@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TiendaServicio.api.Autor.Aplicacion;
 using TiendaServicio.api.Autor.Persistencia;
 
 namespace TiendaServicio.api.Autor
@@ -32,6 +34,8 @@ namespace TiendaServicio.api.Autor
                 options.UseNpgsql(Configuration.GetConnectionString("ConexionDatabase"));
 
             });
+
+            services.AddMediatR(typeof(Nuevo.Manejador).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,7 +8,7 @@ namespace TiendaServicio.api.Autor.Modelo
     public class AutorLibro
     {
         public int AutorLibroId { get; set; }
-        public int Nombre { get; set; }
+        public string Nombre { get; set; }
         public string Apelllido{ get; set; }
         public DateTime? FechaNacimiento { get; set; }
         public ICollection<GradoAcademico> ListaGradoAcademico { get; set; }
