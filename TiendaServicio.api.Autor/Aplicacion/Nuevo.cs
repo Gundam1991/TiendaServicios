@@ -39,6 +39,7 @@ namespace TiendaServicio.api.Autor.Aplicacion
                     Nombre = request.Nombre,
                     FechaNacimiento = request.FechaNacimiento,
                     Apelllido = request.Apellido,
+                    AutorLibroGuid = Convert.ToString(Guid.NewGuid()),
                 };
                 _contexto.AutorLibro.Add(autorLibro);
                 var valor = await _contexto.SaveChangesAsync();
