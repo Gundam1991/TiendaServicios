@@ -14,7 +14,7 @@ namespace TiendaServicio.api.Autor.Migrations
                 {
                     AutorLibroId = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Nombre = table.Column<int>(nullable: false),
+                    Nombre = table.Column<string>(nullable: true),
                     Apelllido = table.Column<string>(nullable: true),
                     FechaNacimiento = table.Column<DateTime>(nullable: true),
                     AutorLibroGuid = table.Column<string>(nullable: true)

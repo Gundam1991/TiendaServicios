@@ -35,8 +35,8 @@ namespace TiendaServicio.api.Autor.Migrations
                     b.Property<DateTime?>("FechaNacimiento")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("Nombre")
-                        .HasColumnType("integer");
+                    b.Property<string>("Nombre")
+                        .HasColumnType("text");
 
                     b.HasKey("AutorLibroId");
 
