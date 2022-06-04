@@ -1,23 +1,23 @@
-﻿using FluentValidation;
-using MediatR;
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using TiendaServicio.api.Libro.Models;
+using FluentValidation;
+using MediatR;
+using TiendaServicio.api.Libro.Modelo;
 using TiendaServicio.api.Libro.Persistencia;
 
 namespace TiendaServicio.api.Libro.Aplicacion
 {
-    public class Nuevo 
+    public class Nuevo
     {
-        public class Ejecuta : IRequest
-        { 
+        public class Ejecuta: IRequest
+        {
             public string Titulo { get; set; }
             public DateTime? FechaPublicacion { get; set; }
             public Guid? AutorLibro { get; set; }
 
         }
-        public class EjecutaValidacion  : AbstractValidator<Ejecuta>
+        public class EjecutaValidacion : AbstractValidator<Ejecuta>
         {
             public EjecutaValidacion()
             {
@@ -28,28 +28,28 @@ namespace TiendaServicio.api.Libro.Aplicacion
         }
         public class Manejador : IRequestHandler<Ejecuta>
         {
-            private readonly ContextoLibreria  _contexto;
+            private readonly ContextoLibreria _contexto;
             public Manejador(ContextoLibreria contexto)
             {
                 _contexto = contexto;
             }
+
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var libro = new LibreriaMaterial
+                var Libro = new LibreriaMaterial
                 {
                     Titulo = request.Titulo,
                     FechaPublicacion = request.FechaPublicacion,
                     AutorLibro = request.AutorLibro,
                 };
-                _contexto.LibreriaMaterial.Add(libro);
-
+                 _contexto.LibreriaMaterial.Add(Libro);
                 var value = await _contexto.SaveChangesAsync();
-                if (value > 0)
+                
+                if(value >0)
                 {
                     return Unit.Value;
                 }
-                throw new Exception("No se pudo guardar libro");
-                
+                throw new Exception("No se pudo giuardar el libro");
             }
         }
     }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TiendaServicio.api.Libro.Persistencia;
 
 namespace TiendaServicio.api.Libro.Migrations
 {
     [DbContext(typeof(ContextoLibreria))]
-    partial class ContextoLibreriaModelSnapshot : ModelSnapshot
+    [Migration("20220604013436_MigracionSqlServerInicial")]
+    partial class MigracionSqlServerInicial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
